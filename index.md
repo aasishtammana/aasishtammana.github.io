@@ -52,10 +52,14 @@ Student Intern, Cloud Core Platform Mar 2020 - Aug 2020
 
 ## Skills Summary
 
-### Languages : Python, C, SQL, Matlab, OpenCV
-### Certifications : Python, ML, SQL, SDLC, RDBMS, Shell Scripting, Excel, PowerPoint
-### Tools : Microsoft Power BI, Tableau, AWS S3, Informatica BDM, Tidal, GIT, MySQL
-### Platforms : Linux, Windows, Arduino, Energia
+### Languages : 
+Python, C, SQL, Matlab, OpenCV
+### Certifications : 
+Python, ML, SQL, SDLC, RDBMS, Shell Scripting, Excel, PowerPoint
+### Tools : 
+Microsoft Power BI, Tableau, AWS S3, Informatica BDM, Tidal, GIT, MySQL
+### Platforms : 
+Linux, Windows, Arduino, Energia
 
 ## Publications
 
