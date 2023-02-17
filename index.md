@@ -43,4 +43,27 @@ Student Intern, Cloud Core Platform Mar 2020 - Aug 2020
 - E-Yantra Robotics  
     - Built a smart Transporter bot with Firebird-V which used ATMEL microcontroller. The bot mimicked harvesting and transportation by navigating to locate and transport 6 objects using coordinates map with ZigBee communication.  
     - Achieved task using a functioning obstacle detection system with sensors and 3 actuators to pick up objects. Analyzed data collected from the robot’s sensors for color detection to optimize performance (2017-2018).  
-    - Imitated pollination of a flower through Pluto drone. Recreated the flowers using 4 led
+    - Imitated pollination of a flower through Pluto drone. Recreated the flowers using 4 led circuits of different colors. The drone navigated the arena with camera-based image recognition (2018-2019).
+- Implemented search algorithms, reinforcement learning and probabilistic inference in Pac-man projects by UC-Berkeley. Constructed knowledge base with 18 propositional logic modules for Wumpus world (Aug-Dec 2022).
+- Applied image processing algorithms such as contour detection, edge detection, histogram enhancement, and negatives in Matlab to develop a people counter utilizing pixel counting and scanning. (Nov 2019).
+- Created a Harvester bot with 80% hit rate to mimic harvesting of ripe fruits using color recognition, Arduino and Sensors.
+- Implemented smart vertical farming with 100 % automated monitoring system to increase yield with minimal management. This solution involved transferring data to cloud using BOLT IoT, enabling remote data analysis (Mar 2018).
+
+
+## Skills Summary
+
+### Languages : Python, C, SQL, Matlab, OpenCV
+### Certifications : Python, ML, SQL, SDLC, RDBMS, Shell Scripting, Excel, PowerPoint
+### Tools : Microsoft Power BI, Tableau, AWS S3, Informatica BDM, Tidal, GIT, MySQL
+### Platforms : Linux, Windows, Arduino, Energia
+
+## Publications
+
+- Thermal Image Processing and Analysis for Surveillance UAVs Kaiser M.S., Xie J., Rathore V.S. (eds) Information and Communication Technology for Competitive Strategies (ICTCS 2020). Lecture Notes in Networks and Systems, vol 190. Springer, Singapore (Jul 2021) (DOI: https://doi.org/10.1007/978-981-16-0882-7 50)
+
+
+## Additional Experience
+
+- Conducted Aptitude & soft-skills training to 300+ degree students for Placements through Smayan Foundation(NGO).
+- Member at Vision X: Focused on building the display unit and speed sensor for Electric vehicles.
+- Teacher’s Assistant for the IT course ”Programming Logic” with python.
