@@ -956,7 +956,6 @@ main {
 }
 
 .research-post-item > a {
-  display: flex;
   position: relative;
   background: var(--border-gradient-onyx);
   height: 100%;
@@ -966,6 +965,11 @@ main {
   margin-left: 15px;
   margin-right: 15px;
   margin-top: 15px;
+  display: grid;
+  gap: 15px;
+  grid-template-columns: 1fr auto; /* Adjust the second value to the width of your image */
+  grid-template-rows: 300px 1fr auto; /* Three rows: header, content, footer */
+  gap: 15px;
 }
 
 .research-post-item > a::before {
@@ -975,6 +979,21 @@ main {
   border-radius: inherit;
   background: var(--eerie-black-1);
   z-index: -1;
+}
+
+/* Position your images in the grid */
+.top-right {
+  grid-column: 2 / 2;
+  grid-row: 1 / 2;
+  align-self: start;
+  justify-self: end;
+}
+
+.bottom-right {
+  grid-column: 2 / 2;
+  grid-row: 2 / 2;
+  align-self: start;
+  justify-self: end;
 }
 
 .research-content {
