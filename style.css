@@ -967,8 +967,8 @@ main {
   margin-top: 15px;
   display: grid;
   gap: 15px;
-  grid-template-columns: 1fr auto; /* Adjust the second value to the width of your image */
-  grid-template-rows: 300px 1fr auto; /* Three rows: header, content, footer */
+  grid-template-columns: 1fr auto; 
+  grid-template-rows: 300px 1fr auto; 
   gap: 15px;
 }
 
