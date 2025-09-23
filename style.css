@@ -375,7 +375,7 @@ main {
 
 .sidebar {
   margin-bottom: 15px;
-  max-height: 112px;
+  max-height: 140px;
   overflow: hidden;
   transition: var(--transition-2);
 }
@@ -496,7 +496,7 @@ main {
 
 .social-list {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(3, 1fr);
   gap: 10px;
   padding-bottom: 4px;
   padding-left: 7px;
@@ -931,6 +931,14 @@ main {
   width: 4px;
   height: 4px;
   border-radius: 4px;
+}
+
+.project-date {
+  color: var(--light-gray-70);
+  font-size: var(--fs-8);
+  font-weight: var(--fw-300);
+  font-style: italic;
+  margin-bottom: 10px;
 }
 
 .project-item-title {
@@ -1700,3 +1708,43 @@ textarea.form-input::-webkit-resizer { display: none; }
   .timeline-text { max-width: 700px; }
 
 }
+
+/* Link affordances for inline external links */
+a.highlight, a.link-accent {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  text-decoration-thickness: 1px;
+  cursor: pointer;
+  position: relative;
+  display: inline; /* ensure inline flow */
+  white-space: nowrap; /* keep text together */
+}
+
+/* external-link indicator ONLY for .highlight links */
+a.highlight::after {
+  content: "";
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-left: 4px;
+  opacity: 0.85;
+  transform: translateY(1px);
+  transition: opacity 160ms ease;
+  background-repeat: no-repeat;
+  background-size: 10px 10px;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="%23CFCFCF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg>');
+}
+
+a.highlight:hover::after { opacity: 1; }
+
+a.highlight:hover, a.link-accent:hover { filter: brightness(1.05); }
+
+/* distinct contrasting color for link-accent (accessible on dark/light) */
+a.link-accent { color: #66B2FF; }
+a.link-accent:visited { color: #5AA3F0; }
+
+/* Sidebar social links: keep original icon color; accent only for label */
+.sidebar .social-link { color: var(--light-gray-70); }
+.sidebar .social-link:hover { color: var(--light-gray); }
+.sidebar .social-label { color: #66B2FF; }
+.sidebar .social-link:hover .social-label { color: #8CC6FF; }
