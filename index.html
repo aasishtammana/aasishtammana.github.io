@@ -14,6 +14,264 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        .project-post-item {
+            overflow: visible !important;
+        }
+        
+        .project-post-item > a,
+        .project-post-item > div {
+            overflow: visible !important;
+        }
+        
+        .project-post-item > div {
+            position: relative;
+            background: var(--border-gradient-onyx);
+            height: 100%;
+            box-shadow: var(--shadow-4);
+            border-radius: 16px;
+            z-index: 1;
+            cursor: default;
+            transition: var(--transition-1);
+        }
+        
+        .project-post-item > div::before {
+            content: "";
+            position: absolute;
+            inset: 1px;
+            border-radius: inherit;
+            background: var(--eerie-black-1);
+            z-index: -1;
+        }
+        
+        .project-post-item > div:hover .project-banner-box img {
+            transform: scale(1.1);
+        }
+        
+        .project-post-item > div:hover .project-item-title {
+            color: var(--orange-yellow-crayola);
+        }
+        
+        /* Fix scrollbar gaps */
+        body::-webkit-scrollbar-button {
+            height: 0 !important;
+            display: none !important;
+        }
+        
+        html::-webkit-scrollbar-button {
+            height: 0 !important;
+            display: none !important;
+        }
+        
+        body::-webkit-scrollbar-track {
+            background: var(--smoky-black) !important;
+        }
+        
+        html::-webkit-scrollbar-track {
+            background: var(--smoky-black) !important;
+        }
+        
+        .project-banner-box {
+            position: relative;
+            overflow: visible !important;
+        }
+        
+        .github-badge {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: rgba(26, 26, 26, 0.85);
+            border: 1px solid rgba(255, 215, 0, 0.4);
+            border-radius: 8px;
+            padding: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .github-badge ion-icon {
+            color: #FFD700;
+            font-size: 20px;
+        }
+        
+        .github-badge:hover {
+            background: rgba(26, 26, 26, 0.95);
+            border-color: rgba(255, 215, 0, 0.8);
+            transform: scale(1.1);
+        }
+        
+        .github-badge::after {
+            content: 'View on GitHub';
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            margin-bottom: 8px;
+            padding: 6px 12px;
+            background: rgba(26, 26, 26, 0.95);
+            color: #FFD700;
+            border: 1px solid rgba(255, 215, 0, 0.4);
+            border-radius: 6px;
+            font-size: 12px;
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+            z-index: 1001;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+        }
+        
+        .github-badge:hover::after {
+            opacity: 1;
+        }
+        
+        .publication-badge {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: rgba(26, 26, 26, 0.85);
+            border: 1px solid rgba(255, 215, 0, 0.4);
+            border-radius: 8px;
+            padding: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .publication-badge ion-icon {
+            color: #FFD700;
+            font-size: 20px;
+        }
+        
+        .publication-badge:hover {
+            background: rgba(26, 26, 26, 0.95);
+            border-color: rgba(255, 215, 0, 0.8);
+            transform: scale(1.1);
+        }
+        
+        .publication-badge::after {
+            content: 'View Publication';
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            margin-bottom: 8px;
+            padding: 6px 12px;
+            background: rgba(26, 26, 26, 0.95);
+            color: #FFD700;
+            border: 1px solid rgba(255, 215, 0, 0.4);
+            border-radius: 6px;
+            font-size: 12px;
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+            z-index: 1001;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+        }
+        
+        .publication-badge:hover::after {
+            opacity: 1;
+        }
+        
+        /* Responsive adjustments for mobile devices */
+        @media (max-width: 768px) {
+            /* Navigation buttons */
+            .work-section-nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .work-section-nav button {
+                width: 100%;
+                max-width: 300px;
+                padding: 10px 25px;
+                font-size: 0.9rem;
+            }
+            
+            /* Section headers */
+            .h3 {
+                font-size: 1.8rem !important;
+            }
+            
+            /* GitHub and Publication badges */
+            .github-badge,
+            .publication-badge {
+                top: 8px;
+                right: 8px;
+                padding: 6px;
+            }
+            
+            .github-badge ion-icon,
+            .publication-badge ion-icon {
+                font-size: 16px;
+            }
+            
+            /* Tooltip adjustments for mobile - show below on small screens */
+            .github-badge::after,
+            .publication-badge::after {
+                bottom: auto;
+                top: 100%;
+                margin-bottom: 0;
+                margin-top: 8px;
+                font-size: 11px;
+                padding: 5px 10px;
+            }
+            
+            /* Ensure badges don't overlap on small images */
+            .project-banner-box {
+                min-height: 150px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            /* Even smaller adjustments for very small screens */
+            .github-badge,
+            .publication-badge {
+                top: 6px;
+                right: 6px;
+                padding: 5px;
+            }
+            
+            .github-badge ion-icon,
+            .publication-badge ion-icon {
+                font-size: 14px;
+            }
+            
+            .work-section-nav button {
+                font-size: 0.85rem;
+                padding: 8px 20px;
+            }
+            
+            .h3 {
+                font-size: 1.5rem !important;
+            }
+        }
+        
+        /* Touch-friendly adjustments */
+        @media (hover: none) and (pointer: coarse) {
+            /* For touch devices, make badges slightly larger for easier tapping */
+            .github-badge,
+            .publication-badge {
+                padding: 10px;
+                min-width: 40px;
+                min-height: 40px;
+            }
+            
+            /* Show tooltip on tap for touch devices */
+            .github-badge:active::after,
+            .publication-badge:active::after {
+                opacity: 1;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -241,27 +499,32 @@
                                 <ul>
                                     <li class="timeline-text-ul">
                                         <p class="timeline-text-ul-item">
-                                            Built custom <span class="experience-highlight">AI tools</span> for automated component classification, datasheet parsing and enrichment, reference design recommendation, and block diagram extraction. Implemented knowledge base generation to accelerate engineering workflows.
+                                            Devised custom <span class="experience-highlight">AI tools</span> for computerized component classification, datasheet parsing and enrichment, reference design recommendation, and block diagram extraction. Implemented knowledge base generation to accelerate engineering workflows.
                                         </p>
                                     </li>
                                     <li class="timeline-text-ul">
                                         <p class="timeline-text-ul-item">
-                                            Designed intelligent automation pipelines for electronic design, including <span class="experience-highlight">CNN–based schematic and component detection</span>, schematic retrieval, and processing workflows for LLM distillation.
+                                            Designed intelligent automation pipelines for electronic design, including <span class="experience-highlight">CNN–based schematic and component detection</span>, schematic and datasheets retrieval, and processing workflows for LLM distillation.
                                         </p>
                                     </li>
                                     <li class="timeline-text-ul">
                                         <p class="timeline-text-ul-item">
-                                            Performed <span class="experience-highlight">Total Addressable Market (TAM) analysis</span> by integrating third-party LinkedIn user data with Altium's first-party software usage data using Python and SQL in Snowflake. Analyzed user job descriptions to identify potential users and categorized them into specific personas by leveraging <span class="experience-highlight">LLMs for classification</span> to target relevant users for marketing strategies.
+                                            Developed a Python based system that translates natural language queries into Altium Designer's PCB Query format using <span class="experience-highlight">EDIF netlist analysis and custom scoring</span>, implementing <span class="experience-highlight">intelligent component filtering</span> on Altium's Filter pane.
                                         </p>
                                     </li>
                                     <li class="timeline-text-ul">
                                         <p class="timeline-text-ul-item">
-                                            Developed an end-to-end <span class="experience-highlight">caricature drawing system</span> to demonstrate  <span class="experience-highlight">Renesas 365</span> using Python, OpenCV, and G-code generation to convert camera images into SVG drawings for a Rotrics DexArm, controlled by a Renesas RZ/V2L processor. Integrated paper detection via VL6180 time-of-flight sensor with Renesas RA0E1 microcontroller (I2C/UART).
+                                            Performed <span class="experience-highlight">Total Addressable Market (TAM) analysis</span> by integrating 330M+ LinkedIn profiles with Altium's software usage data using Python and SQL in Snowflake. Analyzed user job descriptions to identify potential users and categorized them into specific personas by leveraging <span class="experience-highlight">LLMs for classification</span> to target relevant users informing strategic market entry decisions.
                                         </p>
                                     </li>
                                     <li class="timeline-text-ul">
                                         <p class="timeline-text-ul-item">
-                                            Created a unified Employee Entity in Snowflake by establishing link tables using <span class="experience-highlight">Data Vault 2.0 methodology</span>, integrating and deduplicating user data from multiple sources, including UKG, Jira, and Salesforce.
+                                            Programmed an end-to-end <span class="experience-highlight">caricature drawing system</span> to demonstrate  <span class="experience-highlight">Renesas 365</span> using Python, OpenCV, and G-code generation to convert camera images into SVG drawings for a Rotrics DexArm, controlled by a Renesas RZ/V2L processor. Integrated paper detection via VL6180 time of flight sensor with Renesas RA0E1 microcontroller (I2C/UART).
+                                        </p>
+                                    </li>
+                                    <li class="timeline-text-ul">
+                                        <p class="timeline-text-ul-item">
+                                            Created a unified Employee Entity by establishing link tables using <span class="experience-highlight">Data Vault 2.0</span>, deduplicating data from UKG, Jira, and Salesforce.
                                         </p>
                                     </li>
                                     <li class="timeline-text-ul">
@@ -271,12 +534,12 @@
                                     </li>
                                     <li class="timeline-text-ul">
                                         <p class="timeline-text-ul-item">
-                                            Integrated an <span class="experience-highlight">AI chatbot</span> (Anything LLM-GPT 3.5) within the company intranet to answer queries based on the documentation hosted on the website. The Python-based tool was containerized as a Docker image for deployment.
+                                            Integrated an <span class="experience-highlight">AI chatbot</span> (Anything LLM-GPT 3.5) within the company intranet to answer queries based on the documentation hosted on the website. The Python based tool was containerized as a Docker image for streamlined deployment.
                                         </p>
                                     </li>
                                     <li class="timeline-text-ul">
                                         <p class="timeline-text-ul-item">
-                                            Drove Altium's market penetration with <span class="experience-highlight">data driven strategic marketing</span> by securing partnerships with 40+ prominent colleges, facilitating Altium's curriculum integration, and expanding the company's operations footprint with enduring commercial impact.
+                                            Drove Altium's market penetration through <span class="experience-highlight">data-driven strategic marketing</span>, securing 40+ college partnerships and integrating Altium's curriculum, which expanded the company's operational footprint with enduring commercial impact.
                                         </p>
                                     </li>
                                 </ul>
@@ -291,17 +554,17 @@
                                 <ul>
                                     <li class="timeline-text-ul">
                                         <p class="timeline-text-ul-item">
-                                            Developed <span class="experience-highlight">AI tools for chemical sustainability</span> (BOM generation, toxicity analysis, CO₂ estimation, chemical substitutions) using Python, LangChain, OpenAI, Streamlit, Tavily and SQLite. Built <span class="experience-highlight">context-aware natural language</span> to SQL/web search translation with advanced prompt engineering for real-time data retrieval.
+                                            Architected <span class="experience-highlight">7 AI agents using LangGraph</span> for chemical sustainability workflows (BOM generation, toxicity analysis, CO₂ estimation, ingredient substitution, ESG reporting) with <span class="experience-highlight">multi-agent orchestration</span>, state management, and parallel processing across database queries, web search, and vector similarity matching. Created using Python, LangChain, OpenAI, Streamlit, Tavily, and SQLite.
                                         </p>
                                     </li>
                                     <li class="timeline-text-ul">
                                         <p class="timeline-text-ul-item">
-                                            Implemented advanced analytics enabling <span class="experience-highlight">"what-if" analyses</span> and chemical process modeling, allowing users to instantly assess environmental and financial impact for sustainable formulation decisions. Integrated external beauty product and toxicity datasets with <span class="experience-highlight">automated ingestion pipelines</span> for comprehensive ingredient analysis.
+                                            Engineered <span class="experience-highlight">context-aware natural language to SQL translation system</span> with prompt engineering for real time data retrieval from 50k+ beauty product records and 600k+ chemical toxicity datasets. Implemented <span class="experience-highlight">FAISS-based RAG system</span> for semantic document search across thousands of chemical specifications, enabling accurate toxicity profiling and regulatory compliance validation.
                                         </p>
                                     </li>
                                     <li class="timeline-text-ul">
                                         <p class="timeline-text-ul-item">
-                                            Architected <span class="experience-highlight">vector-based knowledge retrieval</span> system using FAISS for document search across thousands of chemical specifications, enabling accurate toxicity profiling and regulatory compliance validation through document parsing and semantic matching.
+                                            Designed <span class="experience-highlight">molecular similarity search engine</span> using <span class="experience-highlight">SMILES fingerprinting</span> for intelligent ingredient substitution recommendations. Built <span class="experience-highlight">what-if analysis engine</span> enabling instant environmental and financial impact assessment for sustainable formulation decisions, with automated sustainability scoring algorithms, interactive visualization generation (Sankey diagrams, decomposition charts).
                                         </p>
                                     </li>
                                 </ul>
@@ -432,6 +695,28 @@
                     <header>
                         <h2 class="h2 article-title">Work</h2>
                     </header>
+                    
+                    <!-- Work Section Navigation -->
+                    <div class="work-section-nav" style="display: flex; justify-content: center; gap: 20px; margin: 30px 0; flex-wrap: wrap;">
+                        <button onclick="document.getElementById('altium-section').scrollIntoView({behavior: 'smooth', block: 'start'})" 
+                                style="background: linear-gradient(to bottom right, hsl(0, 0%, 25%) 0%, hsla(0, 0%, 25%, 0) 50%), hsl(240, 2%, 13%); color: #FFD700; border: 1px solid rgba(255, 215, 0, 0.3); padding: 12px 30px; border-radius: 14px; cursor: pointer; font-size: 1rem; font-weight: 500; transition: all 0.3s ease; box-shadow: 0 4px 15px hsla(0, 0%, 0%, 0.25);"
+                                onmouseover="this.style.borderColor='rgba(255, 215, 0, 0.6)'; this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 20px hsla(0, 0%, 0%, 0.35)'; this.style.background='linear-gradient(to bottom right, hsl(0, 0%, 25%) 0%, hsla(0, 0%, 25%, 0) 50%), rgba(255, 215, 0, 0.05)'"
+                                onmouseout="this.style.borderColor='rgba(255, 215, 0, 0.3)'; this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px hsla(0, 0%, 0%, 0.25)'; this.style.background='linear-gradient(to bottom right, hsl(0, 0%, 25%) 0%, hsla(0, 0%, 25%, 0) 50%), hsl(240, 2%, 13%)'">
+                            Altium
+                        </button>
+                        <button onclick="document.getElementById('chemcopilot-section').scrollIntoView({behavior: 'smooth', block: 'start'})" 
+                                style="background: linear-gradient(to bottom right, hsl(0, 0%, 25%) 0%, hsla(0, 0%, 25%, 0) 50%), hsl(240, 2%, 13%); color: #FFD700; border: 1px solid rgba(255, 215, 0, 0.3); padding: 12px 30px; border-radius: 14px; cursor: pointer; font-size: 1rem; font-weight: 500; transition: all 0.3s ease; box-shadow: 0 4px 15px hsla(0, 0%, 0%, 0.25);"
+                                onmouseover="this.style.borderColor='rgba(255, 215, 0, 0.6)'; this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 20px hsla(0, 0%, 0%, 0.35)'; this.style.background='linear-gradient(to bottom right, hsl(0, 0%, 25%) 0%, hsla(0, 0%, 25%, 0) 50%), rgba(255, 215, 0, 0.05)'"
+                                onmouseout="this.style.borderColor='rgba(255, 215, 0, 0.3)'; this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px hsla(0, 0%, 0%, 0.25)'; this.style.background='linear-gradient(to bottom right, hsl(0, 0%, 25%) 0%, hsla(0, 0%, 25%, 0) 50%), hsl(240, 2%, 13%)'">
+                            ChemCopilot
+                        </button>
+                    </div>
+
+                    <!-- Altium Section -->
+                    <div id="altium-section" style="margin-bottom: 30px;">
+                        <h3 class="h3" style="color: #FFD700; font-size: 2.4rem; text-align: center; border-bottom: 2px solid #FFD700; padding-bottom: 15px;">Altium</h3>
+                    </div>
+
                     <section class="project-posts">
                         <ul class="project-posts-list">
                             <!-- 1. Enhanced Wire Detection CNN -->
@@ -439,6 +724,9 @@
                                 <a href="https://github.com/aasishtammana/Professional-Work/tree/main/Enhanced%20wire%20Detection%20CNN" target="_blank">
                                     <figure class="project-banner-box">
                                         <img src="./images/Enhanced_Wire_CNN.png" alt="Enhanced Wire Detection CNN" loading="lazy">
+                                        <div class="github-badge">
+                                            <ion-icon name="logo-github"></ion-icon>
+                                        </div>
                                     </figure>
                                     <div class="project-content">
                                         <div class="project-meta">
@@ -482,6 +770,9 @@
                                 <a href="https://github.com/aasishtammana/Professional-Work/tree/main/RA0E1%20Robot%20Arm" target="_blank">
                                     <figure class="project-banner-box">
                                         <img src="./images/Robot_Arm.jpg" alt="RA0E1 Robot Arm Integration" loading="lazy">
+                                        <div class="github-badge">
+                                            <ion-icon name="logo-github"></ion-icon>
+                                        </div>
                                     </figure>
                                     <div class="project-content">
                                         <div class="project-meta">
@@ -525,6 +816,9 @@
                                 <a href="https://github.com/aasishtammana/Professional-Work/tree/main/Altium%20Smart%20Filters" target="_blank">
                                     <figure class="project-banner-box">
                                         <img src="./images/Filters.jpg" alt="Altium Smart Search Translator" loading="lazy">
+                                        <div class="github-badge">
+                                            <ion-icon name="logo-github"></ion-icon>
+                                        </div>
                                     </figure>
                                     <div class="project-content">
                                         <div class="project-meta">
@@ -565,6 +859,9 @@
                                 <a href="https://github.com/aasishtammana/Professional-Work/tree/main/Datasheet%20Retriever" target="_blank">
                                     <figure class="project-banner-box">
                                         <img src="./images/Datasheet_Retriever.jpeg" alt="Google Query Datasheet Retriever" loading="lazy">
+                                        <div class="github-badge">
+                                            <ion-icon name="logo-github"></ion-icon>
+                                        </div>
                                     </figure>
                                     <div class="project-content">
                                         <div class="project-meta">
@@ -605,6 +902,9 @@
                                 <a href="https://github.com/aasishtammana/Professional-Work/tree/main/Schematics%20Retriever" target="_blank">
                                     <figure class="project-banner-box">
                                         <img src="./images/Schematic_Retriever.jpg" alt="Schematic Retriever & Data Pipeline" loading="lazy">
+                                        <div class="github-badge">
+                                            <ion-icon name="logo-github"></ion-icon>
+                                        </div>
                                     </figure>
                                     <div class="project-content">
                                         <div class="project-meta">
@@ -645,6 +945,9 @@
                                 <a href="https://github.com/aasishtammana/Professional-Work/tree/main/TechDoc%20Chatbot" target="_blank">
                                     <figure class="project-banner-box">
                                         <img src="./images/Chatbot.jpg" alt="Technical Documentation Chatbot" loading="lazy">
+                                        <div class="github-badge">
+                                            <ion-icon name="logo-github"></ion-icon>
+                                        </div>
                                     </figure>
                                     <div class="project-content">
                                         <div class="project-meta">
@@ -684,6 +987,359 @@
                             </li>
                         </ul>
                     </section>
+
+                    <!-- ChemCopilot Section Header -->
+                    <div id="chemcopilot-section" style="margin-top: 60px; margin-bottom: 30px;">
+                        <h3 class="h3" style="color: #FFD700; font-size: 2.4rem; text-align: center; border-bottom: 2px solid #FFD700; padding-bottom: 15px;">ChemCopilot</h3>
+                    </div>
+
+                    <section class="project-posts">
+                        <ul class="project-posts-list">
+                            <!-- 1. BOM Agent -->
+                            <li class="project-post-item">
+                                <div>
+                                    <figure class="project-banner-box">
+                                        <img src="./images/Bom Agent.png" alt="BOM Agent" loading="lazy">
+                                    </figure>
+                                    <div class="project-content">
+                                        <div class="project-meta">
+                                            <p class="project-category">AI Agent</p>
+                                            <span class="dot"></span>
+                                            <p class="project-category">LangGraph</p>
+                                            <span class="dot"></span>
+                                            <p class="project-category">BOM Generation</p>
+                                        </div>
+                                        <h3 class="h4 project-item-title">BOM Agent</h3>
+                                        <p class="project-text">
+                                            Architected an intelligent Bill of Materials (BOM) generator for beauty products using LangGraph, LangChain, and OpenAI. The agent automates the creation of detailed BOMs based on product descriptions, integrating web search capabilities via Tavily API and database lookups from SQLite databases.
+                                        </p>
+                                        <p class="project-text">
+                                            Implemented state management with BOMAgentState using StateGraph workflow, functional group categorization for ingredients specific to product categories, AI-powered consolidation using GPT-4 for information processing, and automated CSV output generation with ingredient percentages and functional groups.
+                                        </p>
+                                        <div class="project-tech">
+                                            <span class="tech">Python</span>
+                                        </div>
+                                        <div class="project-tech">
+                                            <span class="tech">LangGraph</span>
+                                        </div>
+                                        <div class="project-tech">
+                                            <span class="tech">LangChain</span>
+                                        </div>
+                                        <div class="project-tech">
+                                            <span class="tech">OpenAI</span>
+                                        </div>
+                                        <div class="project-tech">
+                                            <span class="tech">SQLite</span>
+                                        </div>
+                                        <div class="project-tech">
+                                            <span class="tech">Tavily</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <!-- 2. Energy Agent -->
+                            <li class="project-post-item">
+                                <div>
+                                    <figure class="project-banner-box">
+                                        <img src="./images/Energy Agent.png" alt="Energy Agent" loading="lazy">
+                                    </figure>
+                                    <div class="project-content">
+                                        <div class="project-meta">
+                                            <p class="project-category">AI Agent</p>
+                                            <span class="dot"></span>
+                                            <p class="project-category">Energy Analysis</p>
+                                            <span class="dot"></span>
+                                            <p class="project-category">Carbon Footprint</p>
+                                        </div>
+                                        <h3 class="h4 project-item-title">Energy Agent</h3>
+                                        <p class="project-text">
+                                            Engineered an intelligent energy analysis and CO₂ estimation system for BOM ingredients using LangGraph and state-specific energy calculations. The agent analyzes energy requirements and calculates CO₂ emissions based on US state-specific energy grids and production processes from GHG databases.
+                                        </p>
+                                        <p class="project-text">
+                                            Implemented database integration with GHG databases for production process lookups, state-specific CO₂ equivalent calculations (g/kWh), energy requirement analysis (GJ/ton), consolidated energy analysis output, and web search fallback via Tavily API when database information is insufficient.
+                                        </p>
+                                        <div class="project-tech">
+                                            <span class="tech">Python</span>
+                                        </div>
+                                        <div class="project-tech">
+                                            <span class="tech">LangGraph</span>
+                                        </div>
+                                        <div class="project-tech">
+                                            <span class="tech">OpenAI</span>
+                                        </div>
+                                        <div class="project-tech">
+                                            <span class="tech">SQLite</span>
+                                        </div>
+                                        <div class="project-tech">
+                                            <span class="tech">Tavily</span>
+                                        </div>
+                                        <div class="project-tech">
+                                            <span class="tech">Pandas</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <!-- 3. Toxicity Agent -->
+                            <li class="project-post-item">
+                                <div>
+                                    <figure class="project-banner-box">
+                                        <img src="./images/Toxicity Agent.png" alt="Toxicity Agent" loading="lazy">
+                                    </figure>
+                                    <div class="project-content">
+                                        <div class="project-meta">
+                                            <p class="project-category">AI Agent</p>
+                                            <span class="dot"></span>
+                                            <p class="project-category">Toxicity Analysis</p>
+                                            <span class="dot"></span>
+                                            <p class="project-category">Regulatory Compliance</p>
+                                        </div>
+                                        <h3 class="h4 project-item-title">Toxicity Agent</h3>
+                                        <p class="project-text">
+                                            Developed an intelligent toxicity analysis system for BOM ingredients using LangGraph and OpenAI. The agent analyzes toxicity levels for product ingredients by querying SQLite databases and performing web searches via Tavily API when database information is insufficient.
+                                        </p>
+                                        <p class="project-text">
+                                            Implemented automated toxicity value calculation with minimum non-zero value determination, critical effects identification, unit standardization, and comprehensive CSV output generation. The system leverages AI-powered processing for information consolidation and provides detailed toxicity profiles for regulatory compliance validation.
+                                        </p>
+                                        <div class="project-tech">
+                                            <span class="tech">Python</span>
+                                        </div>
+                                        <div class="project-tech">
+                                            <span class="tech">LangGraph</span>
+                                        </div>
+                                        <div class="project-tech">
+                                            <span class="tech">OpenAI</span>
+                                        </div>
+                                        <div class="project-tech">
+                                            <span class="tech">SQLite</span>
+                                        </div>
+                                        <div class="project-tech">
+                                            <span class="tech">Tavily</span>
+                                        </div>
+                                        <div class="project-tech">
+                                            <span class="tech">Pandas</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <!-- 4. Visualization Agent -->
+                            <li class="project-post-item">
+                                <div>
+                                    <figure class="project-banner-box">
+                                        <img src="./images/Visualisation Agent.png" alt="Visualization Agent" loading="lazy">
+                                    </figure>
+                                    <div class="project-content">
+                                        <div class="project-meta">
+                                            <p class="project-category">AI Agent</p>
+                                            <span class="dot"></span>
+                                            <p class="project-category">Data Visualization</p>
+                                            <span class="dot"></span>
+                                            <p class="project-category">Impact Analysis</p>
+                                        </div>
+                                        <h3 class="h4 project-item-title">Visualization Agent</h3>
+                                        <p class="project-text">
+                                            Built a comprehensive visualization system using LangGraph that merges energy and toxicity analysis data to generate interactive visualizations. The agent creates Sankey diagrams, donut charts, and decomposition plots to illustrate sustainability impacts and enable what-if analysis for formulation decisions.
+                                        </p>
+                                        <p class="project-text">
+                                            Implemented data merging and validation workflows, automated sustainability scoring algorithms, interactive visualization generation with Plotly and Matplotlib, footprint decomposition analysis, and comprehensive impact assessment combining toxicity, energy, and cost metrics for real-time formulation analysis.
+                                        </p>
+                                        <div class="project-tech">
+                                            <span class="tech">Python</span>
+                                        </div>
+                                        <div class="project-tech">
+                                            <span class="tech">LangGraph</span>
+                                        </div>
+                                        <div class="project-tech">
+                                            <span class="tech">Plotly</span>
+                                        </div>
+                                        <div class="project-tech">
+                                            <span class="tech">Matplotlib</span>
+                                        </div>
+                                        <div class="project-tech">
+                                            <span class="tech">Pandas</span>
+                                        </div>
+                                        <div class="project-tech">
+                                            <span class="tech">OpenAI</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <!-- 5. Consolidation Agent -->
+                            <li class="project-post-item">
+                                <div>
+                                    <figure class="project-banner-box">
+                                        <img src="./images/Consolidation Agent.png" alt="Consolidation Agent" loading="lazy">
+                                    </figure>
+                                    <div class="project-content">
+                                        <div class="project-meta">
+                                            <p class="project-category">AI Agent</p>
+                                            <span class="dot"></span>
+                                            <p class="project-category">Data Integration</p>
+                                            <span class="dot"></span>
+                                            <p class="project-category">PostgreSQL</p>
+                                        </div>
+                                        <h3 class="h4 project-item-title">Consolidation Agent</h3>
+                                        <p class="project-text">
+                                            Developed a comprehensive consolidation agent using LangGraph that integrates outputs from multiple specialized agents (BOM, toxicity, energy) into unified sustainability reports. The agent queries PostgreSQL databases to consolidate energy and toxicity data from consolidated database tables.
+                                        </p>
+                                        <p class="project-text">
+                                            Implemented state management with BOMAgentState for multi-agent coordination, PostgreSQL integration for consolidated data retrieval, automated ingredient processing with functional group assignment, production process mapping, and comprehensive output generation combining all analysis dimensions into actionable sustainability insights.
+                                        </p>
+                                        <div class="project-tech">
+                                            <span class="tech">Python</span>
+                                        </div>
+                                        <div class="project-tech">
+                                            <span class="tech">LangGraph</span>
+                                        </div>
+                                        <div class="project-tech">
+                                            <span class="tech">PostgreSQL</span>
+                                        </div>
+                                        <div class="project-tech">
+                                            <span class="tech">SQLAlchemy</span>
+                                        </div>
+                                        <div class="project-tech">
+                                            <span class="tech">Pandas</span>
+                                        </div>
+                                        <div class="project-tech">
+                                            <span class="tech">OpenAI</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <!-- 6. SMILES Agent -->
+                            <li class="project-post-item">
+                                <div>
+                                    <figure class="project-banner-box">
+                                        <img src="./images/Smiles Agent.png" alt="SMILES Agent" loading="lazy">
+                                    </figure>
+                                    <div class="project-content">
+                                        <div class="project-meta">
+                                            <p class="project-category">AI Agent</p>
+                                            <span class="dot"></span>
+                                            <p class="project-category">Molecular Similarity</p>
+                                            <span class="dot"></span>
+                                            <p class="project-category">SMILES Fingerprinting</p>
+                                        </div>
+                                        <h3 class="h4 project-item-title">SMILES Agent</h3>
+                                        <p class="project-text">
+                                            Designed a molecular similarity search engine using SMILES fingerprinting and ChemBERTa embeddings for intelligent ingredient analysis. The agent converts chemical names to SMILES strings, generates molecular fingerprints, and performs vector-based similarity searches across chemical databases.
+                                        </p>
+                                        <p class="project-text">
+                                            Implemented SMILES string conversion using OPSIN and PubChem APIs, Morgan fingerprint generation with RDKit, ChemBERTa-77M-MTR model integration for molecular embeddings, FAISS-based vector search for similarity matching, and PostgreSQL integration for querying consolidated chemical databases.
+                                        </p>
+                                        <div class="project-tech">
+                                            <span class="tech">Python</span>
+                                        </div>
+                                        <div class="project-tech">
+                                            <span class="tech">RDKit</span>
+                                        </div>
+                                        <div class="project-tech">
+                                            <span class="tech">ChemBERTa</span>
+                                        </div>
+                                        <div class="project-tech">
+                                            <span class="tech">FAISS</span>
+                                        </div>
+                                        <div class="project-tech">
+                                            <span class="tech">PostgreSQL</span>
+                                        </div>
+                                        <div class="project-tech">
+                                            <span class="tech">Transformers</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <!-- 7. Substitution Agent -->
+                            <li class="project-post-item">
+                                <div>
+                                    <figure class="project-banner-box">
+                                        <img src="./images/Substitution Agent.png" alt="Substitution Agent" loading="lazy">
+                                    </figure>
+                                    <div class="project-content">
+                                        <div class="project-meta">
+                                            <p class="project-category">AI Agent</p>
+                                            <span class="dot"></span>
+                                            <p class="project-category">Ingredient Substitution</p>
+                                            <span class="dot"></span>
+                                            <p class="project-category">Sustainability</p>
+                                        </div>
+                                        <h3 class="h4 project-item-title">Substitution Agent</h3>
+                                        <p class="project-text">
+                                            Architected an intelligent ingredient substitution system using LangGraph that identifies sustainable alternatives for product ingredients. The agent uses chemical similarity, toxicity filtering, and energy analysis to recommend non-toxic substitutes with improved environmental profiles.
+                                        </p>
+                                        <p class="project-text">
+                                            Implemented state management with SubAgentState, LLM-powered candidate identification for organic compound substitutions, toxicity filtering using Tavily web search and AI analysis, energy data computation for substitution candidates, and comprehensive output generation with environmental impact assessment for sustainable formulation decisions.
+                                        </p>
+                                        <div class="project-tech">
+                                            <span class="tech">Python</span>
+                                        </div>
+                                        <div class="project-tech">
+                                            <span class="tech">LangGraph</span>
+                                        </div>
+                                        <div class="project-tech">
+                                            <span class="tech">OpenAI</span>
+                                        </div>
+                                        <div class="project-tech">
+                                            <span class="tech">Tavily</span>
+                                        </div>
+                                        <div class="project-tech">
+                                            <span class="tech">PostgreSQL</span>
+                                        </div>
+                                        <div class="project-tech">
+                                            <span class="tech">SQLAlchemy</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <!-- 8. Report Agent -->
+                            <li class="project-post-item">
+                                <div>
+                                    <figure class="project-banner-box">
+                                        <img src="./images/Report Agent.png" alt="Report Agent" loading="lazy">
+                                    </figure>
+                                    <div class="project-content">
+                                        <div class="project-meta">
+                                            <p class="project-category">AI Agent</p>
+                                            <span class="dot"></span>
+                                            <p class="project-category">RAG System</p>
+                                            <span class="dot"></span>
+                                            <p class="project-category">ESG Reporting</p>
+                                        </div>
+                                        <h3 class="h4 project-item-title">Report Agent</h3>
+                                        <p class="project-text">
+                                            Architected a comprehensive ESG reporting and research assistant using LangGraph with multi-agent orchestration and analyst personas. The agent generates detailed ESG reports by leveraging FAISS-based RAG systems for semantic document search across thousands of chemical specifications and regulatory documents.
+                                        </p>
+                                        <p class="project-text">
+                                            Implemented vector store creation with FAISS for sub-second retrieval, LangGraph-based research workflows with multiple analyst personas conducting parallel interviews, web search integration via Tavily and Wikipedia, automated ESG report generation aligned with GRI, SASB, and ISSB standards, and comprehensive regulatory compliance validation.
+                                        </p>
+                                        <div class="project-tech">
+                                            <span class="tech">Python</span>
+                                        </div>
+                                        <div class="project-tech">
+                                            <span class="tech">LangGraph</span>
+                                        </div>
+                                        <div class="project-tech">
+                                            <span class="tech">FAISS</span>
+                                        </div>
+                                        <div class="project-tech">
+                                            <span class="tech">RAG</span>
+                                        </div>
+                                        <div class="project-tech">
+                                            <span class="tech">OpenAI</span>
+                                        </div>
+                                        <div class="project-tech">
+                                            <span class="tech">Tavily</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </section>
                 </article>
 
                 <!-- #PROJECTS-->
@@ -697,6 +1353,9 @@
                                 <a href="https://github.com/aasishtammana/Decoding-Demographics" target="_blank">
                                     <figure class="project-banner-box">
                                         <img src="./images/Decoding_Demographics.png" alt="Decoding Demographics" loading="lazy">
+                                        <div class="github-badge">
+                                            <ion-icon name="logo-github"></ion-icon>
+                                        </div>
                                     </figure>
                                     <div class="project-content">
                                         <div class="project-meta">
@@ -735,6 +1394,9 @@
                                 <a href="https://github.com/aasishtammana/Heard-Disease-Prediction" target="_blank">
                                     <figure class="project-banner-box">
                                         <img src="./images/Heart_Disease_Prediction.png" alt="Heart Disease Prediction" loading="lazy">
+                                        <div class="github-badge">
+                                            <ion-icon name="logo-github"></ion-icon>
+                                        </div>
                                     </figure>
                                     <div class="project-content">
                                         <div class="project-meta">
@@ -773,6 +1435,9 @@
                                 <a href="https://github.com/aasishtammana/Sign-Language-Detection" target="_blank">
                                     <figure class="project-banner-box">
                                         <img src="./images/Sign_Language_Detection.png" alt="Sign Language Detection" loading="lazy">
+                                        <div class="github-badge">
+                                            <ion-icon name="logo-github"></ion-icon>
+                                        </div>
                                     </figure>
                                     <div class="project-content">
                                         <div class="project-meta">
@@ -811,6 +1476,9 @@
                                 <a href="https://github.com/aasishtammana/Power-Of-Collaboration" target="_blank">
                                     <figure class="project-banner-box">
                                         <img src="./images/Power_Of_Collaboration.png" alt="Power Of Collaboration" loading="lazy">
+                                        <div class="github-badge">
+                                            <ion-icon name="logo-github"></ion-icon>
+                                        </div>
                                     </figure>
                                     <div class="project-content">
                                         <div class="project-meta">
@@ -843,6 +1511,9 @@
                                 <a href="https://github.com/aasishtammana/Optimizing-Warehouse-Operations" target="_blank">
                                     <figure class="project-banner-box">
                                         <img src="./images/Optimizing_Warehouse_Operations.png" alt="Optimizing Warehouse Operations" loading="lazy">
+                                        <div class="github-badge">
+                                            <ion-icon name="logo-github"></ion-icon>
+                                        </div>
                                     </figure>
                                     <div class="project-content">
                                         <div class="project-meta">
@@ -869,6 +1540,9 @@
                                 <a href="https://github.com/aasishtammana/Smart-Farming" target="_blank">
                                     <figure class="project-banner-box">
                                         <img src="./images/Vertical_Farming.png" alt="Vertical Farming" loading="lazy">
+                                        <div class="github-badge">
+                                            <ion-icon name="logo-github"></ion-icon>
+                                        </div>
                                     </figure>
                                     <div class="project-content">
                                         <div class="project-meta">
@@ -901,6 +1575,9 @@
                                 <a href="https://github.com/aasishtammana/Eyantra-Pollinator-Bee" target="_blank">
                                     <figure class="project-banner-box">
                                         <img src="./images/Pollinator_Bee.png" alt="Pollinator Bee" loading="lazy">
+                                        <div class="github-badge">
+                                            <ion-icon name="logo-github"></ion-icon>
+                                        </div>
                                     </figure>
                                     <div class="project-content">
                                         <div class="project-meta">
@@ -947,6 +1624,9 @@
                                 <a href="https://github.com/aasishtammana/Covid-Spread-Data-Analysis" target="_blank">
                                     <figure class="project-banner-box">
                                         <img src="./images/Masking_Policy.png" alt="COVID-19 Impact Analysis" loading="lazy">
+                                        <div class="github-badge">
+                                            <ion-icon name="logo-github"></ion-icon>
+                                        </div>
                                     </figure>
                                     <div class="project-content">
                                         <div class="project-meta">
@@ -979,6 +1659,9 @@
                                 <a href="https://doi.org/10.1007/978-981-16-0882-7_50" target="_blank">
                                     <figure class="project-banner-box">
                                         <img src="./images/Thermal_Image_YOLO.png" alt="Thermal Image Processing UAVs" loading="lazy">
+                                        <div class="publication-badge">
+                                            <ion-icon name="document-text-outline"></ion-icon>
+                                        </div>
                                     </figure>
                                     <div class="project-content">
                                         <div class="project-meta">
