@@ -28,13 +28,13 @@
   ), hsl(240, 2%, 13%);
   --bg-gradient-yellow-1: linear-gradient(
     to bottom right, 
-    hsl(45, 100%, 71%) 0%, 
-    hsla(36, 100%, 69%, 0) 50%
+    #FFD700 0%, 
+    rgba(255, 215, 0, 0) 50%
   );
   --bg-gradient-yellow-2: linear-gradient(
     135deg, 
-    hsla(45, 100%, 71%, 0.251) 0%, 
-    hsla(35, 100%, 68%, 0) 59.86%
+    rgba(255, 215, 0, 0.251) 0%, 
+    rgba(255, 215, 0, 0) 59.86%
   ), hsl(240, 2%, 13%);
   --border-gradient-onyx: linear-gradient(
     to bottom right, 
@@ -43,8 +43,8 @@
   );
   --text-gradient-yellow: linear-gradient(
     to right, 
-    hsl(45, 100%, 72%), 
-    hsl(35, 100%, 68%)
+    #FFD700, 
+    #FFD700
   );
 
   /* solid */
@@ -56,8 +56,8 @@
   --smoky-black: hsl(0, 0%, 7%);
   --white-1: hsl(0, 0%, 100%);
   --white-2: hsl(0, 0%, 98%);
-  --orange-yellow-crayola: hsl(45, 100%, 72%);
-  --vegas-gold: hsl(45, 54%, 58%);
+  --orange-yellow-crayola: #FFD700;
+  --vegas-gold: #FFD700;
   --light-gray: hsl(0, 0%, 84%);
   --light-gray-70: hsla(0, 0%, 84%, 0.7);
   --bittersweet-shimmer: hsl(0, 43%, 51%);
@@ -140,7 +140,7 @@ input, textarea {
 }
 
 ::selection {
-  background: var(--orange-yellow-crayola);
+  background: #FFD700;
   color: var(--smoky-black);
 }
 
@@ -164,7 +164,6 @@ html,body{
 
 canvas{
   display:block;
-  vertical-align:bottom;
 }
 
 
@@ -187,6 +186,7 @@ canvas{
 #stats,
 .count-particles{
   -webkit-user-select: none;
+  user-select: none;
   margin-top: 5px;
   margin-left: 5px;
 }
@@ -250,7 +250,7 @@ article {
   justify-content: center;
   align-items: center;
   font-size: 16px;
-  color: var(--orange-yellow-crayola);
+  color: #FFD700;
   box-shadow: var(--shadow-1);
   z-index: 1;
 }
@@ -325,7 +325,7 @@ article.active {
 }
 
 .has-scrollbar::-webkit-scrollbar-thumb {
-  background: var(--orange-yellow-crayola);
+  background: #FFD700;
   border-radius: 5px;
 }
 
@@ -419,7 +419,7 @@ main {
   right: -15px;
   border-radius: 0 15px;
   font-size: 13px;
-  color: var(--orange-yellow-crayola);
+  color: #FFD700;
   background: var(--border-gradient-onyx);
   padding: 10px;
   box-shadow: var(--shadow-2);
@@ -582,7 +582,7 @@ main {
 
 .about-p-highlight {
   display: inline;
-  color:var(--orange-yellow-crayola)
+  color: #FFD700;
 }
 
 .about-text p { margin-bottom: 15px; }
@@ -673,7 +673,7 @@ main {
 }
 
 .timeline-item .program {
-  color: var(--vegas-gold);
+  color: #FFD700;
   font-weight: var(--fw-400);
   line-height: 1.6;
 }
@@ -687,7 +687,7 @@ main {
 }
 
 .timeline-item .right-align-gold {
-  color: var(--vegas-gold);
+  color: #FFD700;
   margin-right: 20px;
   text-align: right;
   float: right;
@@ -752,12 +752,12 @@ main {
 
 .archive-link {
   display: inline;
-  color: var(--vegas-gold);
+  color: #FFD700;
   text-decoration: none;
 }
 
 .archive-link:hover {
-  color: gold;
+  color: #FFD700;
   text-decoration: none;
 }
 
@@ -1142,7 +1142,7 @@ textarea.form-input::-webkit-resizer { display: none; }
   position: relative;
   width: 100%;
   background: var(--border-gradient-onyx);
-  color: var(--orange-yellow-crayola);
+  color: #FFD700;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1759,8 +1759,46 @@ a.highlight:hover, a.link-accent:hover { filter: brightness(1.05); }
 a.link-accent { color: #66B2FF; }
 a.link-accent:visited { color: #5AA3F0; }
 
-/* Sidebar social links: keep original icon color; accent only for label */
-.sidebar .social-link { color: var(--light-gray-70); }
-.sidebar .social-link:hover { color: var(--light-gray); }
-.sidebar .social-label { color: #66B2FF; }
+/* Sidebar social links: match site gold accent (same feel as GitHub badges) */
+.sidebar .social-link {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 12px;
+  border-radius: 12px;
+  background: rgba(26, 26, 26, 0.85);
+  border: 1px solid rgba(255, 215, 0, 0.35);
+  box-shadow: 0 4px 12px hsla(0, 0%, 0%, 0.25);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+  width: 100%;
+  justify-content: center;
+}
+
+.sidebar .social-link ion-icon {
+  color: #FFD700;
+  font-size: 18px;
+}
+
+.sidebar .social-label {
+  color: #66B2FF;
+  font-weight: 500;
+  position: relative;
+  white-space: nowrap;
+  text-align: center;
+}
+
+.sidebar .social-link:hover {
+  transform: translateY(-1px);
+  background: rgba(26, 26, 26, 0.95);
+  border-color: rgba(255, 215, 0, 0.75);
+  box-shadow: 0 6px 18px hsla(0, 0%, 0%, 0.35);
+}
+
+/* Make clickability obvious: blue label + external-link cue on hover */
 .sidebar .social-link:hover .social-label { color: #8CC6FF; }
+
+.sidebar .social-label::after {
+  content: "\00A0↗";
+  display: inline-block;
+}
