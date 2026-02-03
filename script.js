@@ -59,13 +59,14 @@ if (form) {
       }
 
       const formData = new FormData(form);
-      const res = await fetch(action, {
+
+      // Use no-cors so the browser doesn't block the Apps Script web app response.
+      // We don't need to read the response body; we just trust the endpoint.
+      await fetch(action, {
         method: "POST",
         body: formData,
-        headers: { Accept: "application/json" },
+        mode: "no-cors",
       });
-
-      if (!res.ok) throw new Error("Request failed");
 
       form.reset();
       formBtn?.setAttribute("disabled", "");
