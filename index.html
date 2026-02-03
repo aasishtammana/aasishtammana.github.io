@@ -2000,17 +2000,18 @@
                     </section>
                     <section class="contact-form">
                         <h3 class="h3 form-title">Contact Form</h3>
-                        <form action="https://script.google.com/macros/s/AKfycbxbiNejyd9DR5KzDfYpI-GhJ9G2os6r7eTiaD9upicD4qjrsTUx9qyhRRsOajCmrLLx/exec" method="POST" class="form" target="_blank" data-form>
+                        <!-- This site is hosted on GitHub Pages (static). The form posts to a Google Apps Script Web App you control. -->
+                        <form action="https://script.google.com/macros/s/AKfycbzjaR3mHk8ogKxPN4QgOX6KluVhRQ7UE61-x6_pHJMARBt4UwwbGf5DgEs8BE5_nJWYvw/exec" method="POST" class="form" data-form>
                             <div class="input-wrapper">
-                                <input type="text" name="entry.1308961419" class="form-input" placeholder="Full name" required data-form-input>
-                                <input type="email" name="entry.2051312497" class="form-input" placeholder="Email address" required data-form-input>
+                                <input type="text" name="name" class="form-input" placeholder="Full name" required data-form-input>
+                                <input type="email" name="email" class="form-input" placeholder="Email address" required data-form-input>
                             </div>
-                            <textarea name="entry.161193274" class="form-input" placeholder="Your Message" required data-form-input></textarea>
+                            <textarea name="message" class="form-input" placeholder="Your Message" required data-form-input></textarea>
                             <button class="form-btn" type="submit" disabled data-form-btn>
                                 <ion-icon name="paper-plane"></ion-icon>
                                 <span>Send Message</span>
                             </button>
-                            
+                            <p class="form-status" data-form-status style="margin-top: 12px; font-size: 13px; display: none;"></p>
                         </form>
                     </section>
                 </article> 
